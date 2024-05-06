@@ -151,19 +151,19 @@ Truck.prototype.tow = function (num) {
   }
 }
 // Створюємо новий екземпляр об'єкта Truck
-const firstTruck = {
-  brand: 'Toyota',
-  model: 'Tundra',
-  year: 2019,
-  mileage: 20000,
-  color: 'Red',
-  engineType: 'V8',
-  towingCapacity: 10000,
-  fuelType: 'Gasoline',
-  transmissionType: 'Automatic',
-  doors: 4,
-  weight: 5600,
-}
+let myTruck = new Truck(
+  'Toyota',
+  'Tundra',
+  2019,
+  20000,
+  'Red',
+  'V8',
+  10000,
+  'Gasoline',
+  'Automatic',
+  4,
+  5600,
+)
 /*
  * Екземпляр об'єкту: myTruck
  * Властивості:
@@ -182,16 +182,15 @@ const firstTruck = {
  * | doors            | 4                            |
  * | weight           | 5600                         |
  */
-const myTruck = new Truck(firstTruck)
+
 // Викликаємо метод tow з вагою меншою за towingCapacity
 myTruck.tow(1000)
 // Викликаємо метод tow з вагою більшою за towingCapacity
 myTruck.tow(20000)
 // Додаємо метод drive для прототипу Car, який збільшує kilometers на передане число, та виводить Подорожуємо <kilometers> кілометрів у <brand> <model>.
 function drive(num) {
-  return `Подорожуємо ${this.mileage + num} кілометрів у ${
-    this.brand
-  } ${this.model}`
+  return `Подорожуємо ${(this.mileage =
+    num)} кілометрів у ${this.brand} ${this.model}`
 }
 // Використовуємо bind для зв'язування методу drive з конкретним об'єктом car.
 const bindFunc = drive.bind(car, 100)
